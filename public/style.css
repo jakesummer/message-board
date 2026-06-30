@@ -78,7 +78,9 @@ h6 {
 
 :root {
   --accent-color: #fd68b3;
-  --accent-color-dark: #46243b;
+  --accent-color-light: #fa84bf;
+  --accent-color-dark: #603051;
+  --accent-color-darker: #46243b;
   --surface-1-color: #18121c;
   --surface-1-border-color: #3b323e;
   --primary-font-color: #e4e1ed;
@@ -175,6 +177,12 @@ main {
   background-color: var(--surface-1-color);
   border-radius: 20px;
   border: 2px solid var(--surface-1-border-color);
+  transition: transform 0.5s ease;
+
+  &:hover {
+    border-color: var(--accent-color-dark);
+    transform: scale(1.03);
+  }
 
   .right {
     display: flex;
@@ -196,7 +204,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--accent-color-dark);
+  background-color: var(--accent-color-darker);
   color: var(--accent-color);
   border-radius: 100%;
   font-size: 1.25rem;
@@ -239,5 +247,15 @@ main {
   svg {
     width: 1.15em;
     height: 1.15em;
+    transition: transform 200ms;
+  }
+
+  &:hover {
+    color: var(--accent-color);
+    fill: var(--accent-color);
+
+    svg {
+      transform: scale(1.3);
+    }
   }
 }
