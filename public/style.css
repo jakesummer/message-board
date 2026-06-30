@@ -66,3 +66,18 @@ h6 {
 }
 
 /* === Styles === */
+@font-face {
+  font-family: "Geist";
+  src:
+    url("./fonts/Geist.woff2") format("woff2-variations"),
+    url("./fonts/Geist.woff") format("woff-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family:
+    "Geist", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
