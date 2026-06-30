@@ -16,7 +16,7 @@ const messagesModel = {
       year: "numeric",
     });
 
-    db.push({
+    db.messages.push({
       text: message,
       user: userName,
       added: formattedDate,
