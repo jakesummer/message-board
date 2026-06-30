@@ -76,8 +76,6 @@ h6 {
   font-display: swap;
 }
 
-body {
-  font-family:
-    "Geist", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+.no-scroll {
+  overflow: hidden;
 }
