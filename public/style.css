@@ -145,13 +145,14 @@ header {
   }
 }
 
-#new-message-btn {
+.primary-btn {
   position: relative;
   z-index: 1;
   padding: 0.7rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.5rem;
   font-size: 1.2rem;
   font-weight: 500;
   background-color: var(--accent-color);
