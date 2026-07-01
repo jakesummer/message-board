@@ -19,4 +19,16 @@ function getAllMessages(req, res) {
   }
 }
 
-export { getAllMessages, createNewMessage };
+function heartMessage(req, res) {
+  const { index } = req.params;
+  const updatedMessage = messagesModel.addHeart(index);
+
+  if (!updatedMessage) {
+    res.status(404).json({ error: "Message not found" });
+    return;
+  }
+
+  res.status(200).json({ success: true, hearts: updatedMessage.hearts });
+}
+
+export { getAllMessages, createNewMessage, heartMessage };

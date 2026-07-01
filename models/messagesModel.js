@@ -33,6 +33,15 @@ const messagesModel = {
   getAll() {
     return messages;
   },
+
+  addHeart(index) {
+    index = parseInt(index, 10);
+    if (messages[index]) {
+      messages[index].hearts += 1;
+      return messages[index];
+    }
+    return null;
+  },
 };
 
 export default messagesModel;
