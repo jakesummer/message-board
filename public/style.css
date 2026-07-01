@@ -135,10 +135,14 @@ header {
   h1 {
     color: var(--accent-color);
     font-weight: 900;
+    text-shadow: color-mix(in srgb, var(--accent-color-light) 90%, transparent)
+      0px 0px 55px;
   }
 }
 
 #new-message-btn {
+  position: relative;
+  z-index: 1;
   padding: 0.7rem;
   display: flex;
   justify-content: center;
@@ -151,6 +155,25 @@ header {
   color: white;
   fill: white;
   cursor: pointer;
+  --glow-color: color-mix(in srgb, var(--accent-color-light) 60%, transparent);
+  -webkit-box-shadow: 0px 100px 1px 10px var(--glow-color);
+  -moz-box-shadow: 0px 100px 1px 10px var(--glow-color);
+  box-shadow: 0px 0px 100px 1px var(--glow-color);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: var(--accent-color-light);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
 
   svg {
     width: 1em;
