@@ -65,6 +65,11 @@ h6 {
   isolation: isolate;
 }
 
+html,
+body {
+  touch-action: manipulation;
+}
+
 /* === Styles === */
 @font-face {
   font-family: "Geist";
