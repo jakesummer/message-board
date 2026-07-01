@@ -286,4 +286,10 @@ main {
       transform: scale(1.3);
     }
   }
+
+  &:active {
+    svg {
+      transform: scale(1.7);
+    }
+  }
 }
