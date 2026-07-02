@@ -103,6 +103,7 @@ button {
   --surface-3-color: #0f0f17;
   --primary-font-color: #e4e1ed;
   --secondary-font-color: #908fa0;
+  --error-color: #ff4d4d;
 }
 
 body {
@@ -419,6 +420,10 @@ textarea {
 
   &:focus {
     outline: 2px solid var(--accent-color);
+  }
+
+  &:user-invalid {
+    outline: 2px solid var(--error-color);
   }
 }
 
