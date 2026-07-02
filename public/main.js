@@ -13,14 +13,13 @@ const closeNewMessageModal = () => {
   document.body.classList.remove("no-scroll");
   newMessageModal.classList.add("closing");
 
-  newMessageModal.addEventListener(
-    "transitionend",
-    () => {
-      newMessageModal.close();
-      newMessageModal.classList.remove("closing");
-    },
-    { once: true },
-  );
+  newMessageModal.addEventListener("transitionend", function handler(e) {
+    if (e.propertyName !== "transform") return;
+    console.log(e.propertyName);
+    newMessageModal.close();
+    newMessageModal.classList.remove("closing");
+    newMessageModal.removeEventListener("transitionend", handler);
+  });
 };
 
 closeModalButton.addEventListener("click", closeNewMessageModal);
