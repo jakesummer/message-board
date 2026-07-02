@@ -88,6 +88,8 @@ body {
   --accent-color-darker: #46243b;
   --surface-1-color: #18121c;
   --surface-1-border-color: #3b323e;
+  --surface-2-color: #26262e;
+  --surface-3-color: #0f0f17;
   --primary-font-color: #e4e1ed;
   --secondary-font-color: #908fa0;
 }
@@ -291,6 +293,57 @@ main {
   &:active {
     svg {
       transform: scale(1.7);
+    }
+  }
+}
+
+dialog {
+  opacity: 0;
+  transform: translateY(-75px);
+  transition:
+    opacity 0.7s,
+    transform 0.5s,
+    display 0.5s allow-discrete,
+    overlay 0.5s allow-discrete;
+
+  &[open] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &::backdrop {
+    --filter: blur(10px);
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.1);
+    transition:
+      opacity 0.5s,
+      display 0.5s allow-discrete,
+      overlay 0.5s allow-discrete;
+  }
+
+  &[open]::backdrop {
+    opacity: 1;
+    backdrop-filter: var(--filter);
+    -webkit-backdrop-filter: var(--filter);
+  }
+
+  &.closing {
+    opacity: 0;
+    transform: translateY(-75px);
+
+    &::backdrop {
+      opacity: 0;
+    }
+  }
+
+  @starting-style {
+    &[open] {
+      opacity: 0;
+      transform: translateY(-75px);
+    }
+
+    &[open]::backdrop {
+      opacity: 0;
     }
   }
 }

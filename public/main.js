@@ -9,10 +9,25 @@ newMessageButton.addEventListener("click", () => {
   document.body.classList.add("no-scroll");
 });
 
-closeModalButton.addEventListener("click", () => newMessageModal.close());
-newMessageModal.addEventListener("close", () =>
-  document.body.classList.remove("no-scroll"),
-);
+const closeNewMessageModal = () => {
+  document.body.classList.remove("no-scroll");
+  newMessageModal.classList.add("closing");
+
+  newMessageModal.addEventListener(
+    "transitionend",
+    () => {
+      newMessageModal.close();
+      newMessageModal.classList.remove("closing");
+    },
+    { once: true },
+  );
+};
+
+closeModalButton.addEventListener("click", closeNewMessageModal);
+newMessageModal.addEventListener("cancel", (e) => {
+  e.preventDefault();
+  closeNewMessageModal();
+});
 
 document.addEventListener("click", async (e) => {
   const heartBtn = e.target.closest(".hearts");
