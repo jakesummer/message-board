@@ -70,6 +70,17 @@ body {
   touch-action: manipulation;
 }
 
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
 /* === Styles === */
 @font-face {
   font-family: "Geist";
@@ -162,7 +173,6 @@ header {
   border-radius: 10px;
   color: white;
   fill: white;
-  cursor: pointer;
   --glow-color: color-mix(in srgb, var(--accent-color-light) 60%, transparent);
   -webkit-box-shadow: 0px 100px 1px 10px var(--glow-color);
   -moz-box-shadow: 0px 100px 1px 10px var(--glow-color);
@@ -273,7 +283,6 @@ main {
   gap: 0.3rem;
   font-size: 1.05rem;
   font-weight: 500;
-  cursor: pointer;
 
   svg {
     width: 1.15em;
@@ -298,6 +307,12 @@ main {
 }
 
 dialog {
+  background-color: var(--surface-2-color);
+  color: var(--secondary-font-color);
+  border: none;
+  border-radius: 25px;
+  width: 50%;
+  padding: 2rem;
   opacity: 0;
   transform: translateY(-75px);
   transition:
@@ -344,6 +359,103 @@ dialog {
 
     &[open]::backdrop {
       opacity: 0;
+    }
+  }
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+legend {
+  color: var(--primary-font-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.label-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+label {
+  font-size: 0.95em;
+  font-weight: 700;
+}
+
+input,
+textarea {
+  padding: 0.5rem 0.7rem;
+  border-radius: 10px;
+  background-color: var(--surface-3-color);
+  color: var(--primary-font-color);
+  border: none;
+  font-weight: 600;
+
+  &:placeholder-shown {
+    color: var(--secondary-font-color);
+    font-weight: 500;
+  }
+
+  &:focus {
+    outline: 2px solid var(--accent-color);
+  }
+}
+
+textarea {
+  resize: vertical;
+  min-height: 5em;
+  height: 10em;
+  max-height: 50vh;
+}
+
+.btn-container {
+  display: flex;
+  gap: 2rem;
+  align-self: flex-end;
+  margin-top: 1rem;
+
+  #close-modal-btn {
+    position: relative;
+    background: none;
+    border: none;
+    color: var(--secondary-font-color);
+    font-weight: 700;
+
+    &,
+    &::before {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 5px;
+    }
+
+    &::before {
+      transition: opacity 0.3s;
+      opacity: 0;
+      content: "Close";
+      position: absolute;
+      color: var(--accent-color);
+      text-decoration-color: var(--accent-color);
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+  }
+
+  button[type="submit"] {
+    position: relative;
+    gap: 0.2rem;
+    padding: 0.8rem 4rem;
+
+    svg {
+      position: relative;
+      top: -2.5px;
+      transform: rotate(-45deg);
     }
   }
 }
