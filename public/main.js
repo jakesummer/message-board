@@ -3,6 +3,8 @@ const newMessageModal = document.getElementById("new-message-modal");
 const newMessageForm = document.getElementById("new-message-form");
 const closeModalButton = document.getElementById("close-modal-btn");
 
+document.body.addEventListener('touchstart', function() {}, false);
+
 newMessageButton.addEventListener("click", () => {
   newMessageForm.reset();
   newMessageModal.showModal();
