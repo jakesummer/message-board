@@ -480,3 +480,47 @@ textarea {
     }
   }
 }
+
+@media (max-width: 730px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 2.3rem;
+
+    h1 {
+      background-color: var(--surface-1-color);
+      border-bottom: 2.5px solid var(--surface-1-border-color);
+      align-self: stretch;
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-bottom: 1rem;
+    }
+  }
+
+  main {
+    padding: 0;
+  }
+
+  .message-container {
+    width: 75%;
+  }
+
+  dialog {
+    width: 75%;
+
+    .btn-container {
+      align-self: center;
+      flex-direction: column-reverse;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .message-container {
+    width: 90%;
+  }
+}
