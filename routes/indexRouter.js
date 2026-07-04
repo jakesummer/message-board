@@ -9,6 +9,6 @@ const indexRouter = Router();
 
 indexRouter.get("/", getAllMessages);
 indexRouter.post("/", createNewMessage);
-indexRouter.post("/messages/:index/like", heartMessage);
+indexRouter.post("/messages/:id/like", heartMessage);
 
 export default indexRouter;

@@ -3,7 +3,7 @@ const newMessageModal = document.getElementById("new-message-modal");
 const newMessageForm = document.getElementById("new-message-form");
 const closeModalButton = document.getElementById("close-modal-btn");
 
-document.body.addEventListener('touchstart', function() {}, false);
+document.body.addEventListener("touchstart", function () {}, false);
 
 newMessageButton.addEventListener("click", () => {
   newMessageForm.reset();
@@ -34,14 +34,14 @@ document.addEventListener("click", async (e) => {
   const heartBtn = e.target.closest(".hearts");
   if (!heartBtn) return;
 
-  const index = heartBtn.dataset.index;
+  const id = heartBtn.dataset.id;
   const heartCountElement = heartBtn.querySelector(".heart-count");
   const currHearts = parseInt(heartCountElement.textContent, 10);
 
   heartCountElement.textContent = currHearts + 1;
 
   try {
-    const res = await fetch(`/messages/${index}/like`, { method: "POST" });
+    const res = await fetch(`/messages/${id}/like`, { method: "POST" });
 
     if (!res.ok) {
       throw new Error("Failed to update heart count on server");
