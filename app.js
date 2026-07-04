@@ -1,6 +1,12 @@
 import express from "express";
 import path from "node:path";
+import process from "node:process";
+import fs from "node:fs";
 import indexRouter from "./routes/indexRouter.js";
+
+if (fs.existsSync(".env")) {
+  process.loadEnvFile();
+}
 
 const app = express();
 const __dirname = import.meta.dirname;
@@ -15,7 +21,7 @@ app.set("view engine", "ejs");
 
 app.use("/", indexRouter);
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, (err) => {
   if (err) {
     throw err;
