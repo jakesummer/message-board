@@ -143,6 +143,39 @@ body {
   &.no-scroll {
     overflow: hidden;
   }
+
+  &.error {
+    min-height: 100vh;
+    /* overflow: hidden; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5.5rem;
+    padding: 0 1rem 2rem;
+    font-size: clamp(1rem, 5vw, 2.3rem);
+
+    h1 {
+      font-size: 3.5em;
+      margin-bottom: -2rem;
+    }
+
+    h2 {
+      font-size: 2em;
+      max-width: 100%;
+      text-align: center;
+    }
+
+    p,
+    a {
+      font-size: 1.3em;
+      text-decoration: none;
+    }
+
+    a {
+      padding: 1rem;
+    }
+  }
 }
 
 header {
@@ -151,13 +184,15 @@ header {
   background-color: var(--surface-1-color);
   border-bottom: 2.5px solid var(--surface-1-border-color);
   padding: 1.5rem;
+}
 
-  h1 {
-    color: var(--accent-color);
-    font-weight: 900;
-    text-shadow: color-mix(in srgb, var(--accent-color-light) 90%, transparent)
-      0px 0px 55px;
-  }
+h1,
+h2,
+.error > p {
+  color: var(--accent-color);
+  font-weight: 900;
+  text-shadow: color-mix(in srgb, var(--accent-color-light) 90%, transparent)
+    0px 0px 55px;
 }
 
 #message-count {

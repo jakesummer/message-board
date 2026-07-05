@@ -21,6 +21,22 @@ app.set("view engine", "ejs");
 
 app.use("/", indexRouter);
 
+app.use((req, res) => {
+  res.status(404).render("error", {
+    statusCode: "404",
+    errorMessage: `The requested URL: ${req.path} was not found!`,
+  });
+});
+
+// eslint-disable-next-line no-unused-vars
+app.use((err, req, res, next) => {
+  console.log(err);
+  res.status(500).render("error", {
+    statusCode: 500,
+    errorMessage: "Internal Server Error",
+  });
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (err) => {
   if (err) {

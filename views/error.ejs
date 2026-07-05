@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= statusCode %> Error</title>
+  </head>
+  <body class="error">
+    <h1><%= statusCode %></h1>
+    <h2><%= errorMessage %></h2>
+    <% if (statusCode === "404") { %>
+     <a class="primary-btn" href="/">Back To Home</a>
+    <% } else { %>
+      <p>Please try again later!</p>
+    <% } %>
+  </body>
+</html>

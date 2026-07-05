@@ -2,29 +2,21 @@ import db from "../db/queries.js";
 import formatDate from "../utils/formatDate.js";
 
 async function createNewMessage(req, res) {
-  try {
-    const { user, text } = req.body;
-    await db.insertMessage(user, text);
-    res.redirect("/");
-  } catch (err) {
-    console.log(err);
-  }
+  const { user, text } = req.body;
+  await db.insertMessage(user, text);
+  res.redirect("/");
 }
 
 async function getAllMessages(req, res) {
-  try {
-    const data = await db.getAllMessages();
-    const messages = data.map((m) => ({
-      id: m.id,
-      text: m.message,
-      user: m.username,
-      added: formatDate(new Date(m.added)),
-      hearts: m.hearts,
-    }));
-    res.render("index", { messages });
-  } catch (err) {
-    console.log(err);
-  }
+  const data = await db.getAllMessages();
+  const messages = data.map((m) => ({
+    id: m.id,
+    text: m.message,
+    user: m.username,
+    added: formatDate(new Date(m.added)),
+    hearts: m.hearts,
+  }));
+  res.render("index", { messages });
 }
 
 async function heartMessage(req, res) {
