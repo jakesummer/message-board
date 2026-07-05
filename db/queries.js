@@ -2,7 +2,7 @@ import pool from "./pool.js";
 import getCurrentDate from "../utils/getCurrentDate.js";
 
 async function getAllMessages() {
-  const { rows } = await pool.query("SELECT * FROM messages;");
+  const { rows } = await pool.query("SELECT * FROM messages ORDER BY id;");
   return rows;
 }
 
