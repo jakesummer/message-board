@@ -7,6 +7,7 @@
 - Users can post messages along with their names
   - All data is securely stored in a PostgreSQL database, ensuring messages persist and are visible to everyone
 - Users can also heart posts
+- Server-side form validation using [express-validator](https://www.npmjs.com/package/express-validator) with native HTML5 client-side checks
 - Dynamic counter at the top of the screen to display the number of posts that have been made
 - Fully polished and animated UI
 - Fully responsive UI which works on all screen sizes
