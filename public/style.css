@@ -474,7 +474,6 @@ textarea {
   display: flex;
   gap: 2rem;
   align-self: flex-end;
-  margin-top: 1rem;
 
   #close-modal-btn {
     position: relative;
@@ -515,6 +514,16 @@ textarea {
       transform: rotate(-45deg);
     }
   }
+}
+
+#error-msg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--error-color);
+  font-weight: 700;
+  text-align: center;
+  list-style-position: inside;
 }
 
 @media (max-width: 730px) {
@@ -558,5 +567,12 @@ textarea {
 @media (max-width: 500px) {
   .message-container {
     width: 90%;
+  }
+
+  #error-msg-container {
+    margin: 0.3rem 0;
+    ul {
+      list-style-type: none;
+    }
   }
 }
