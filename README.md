@@ -13,6 +13,17 @@
 - Fully responsive UI which works on all screen sizes
 - Custom error pages to handle 404 (Not Found) and 500 (Internal Server Error) issues
 
+## Tech Stack
+
+- **Runtime Environment:** Node.js
+- **Backend Framework:** Express
+- **Database:** PostgreSQL
+- **Database Driver:** pg (node-postgres)
+- **Templating Engine:** EJS (Embedded JavaScript)
+- **Data Validation:** express-validator
+- **Programming Language:** JavaScript
+- **Styling:** CSS 
+
 ## Getting Started
 
 To run the site locally, follow these steps:
